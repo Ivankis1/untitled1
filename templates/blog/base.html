@@ -1,4 +1,6 @@
 {% load static %}
+{% load account %}
+
 <html>
    <head>
       <meta charset="utf-8">
@@ -18,19 +20,22 @@
                  </a>
                </div>
                <ul id="menu">
+                    <li>
+                      <a href="{% url 'account_change_password' %}" class="top-menu"><span class="glyphicon glyphicon-edit">{% user_display user %}</span></a>
+                    </li>
                    {% if user.is_authenticated %}
                       <li>
                          <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit">Не опубликованные посты</span></a>
 {#                         <a href="">Blog</a>#}
                       </li>
-                      <li class="current">
-                         <a href="">Portfolio</a>
-                      </li>
-                      <li>
-                         <a href="">About</a>
-                      </li>
-{#                                       <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>#}
-{#                <a href="{% url 'post_new' %}" class = "top-menu"><span class="glyphicon glyphicon-plus"></span></a>#}
+
+{#                      <li class="current">#}
+{#                         <a href="">Portfolio</a>#}
+{#                      </li>#}
+{#                      <li>#}
+{#                         <a href="">About</a>#}
+{#                      </li>#}
+
                     {% endif %}
                </ul>
                <div class="burger">
