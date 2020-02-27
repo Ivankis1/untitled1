@@ -5,29 +5,30 @@
    <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Галерея Masonry</title>
+      <title>LadaMEDIA</title>
       <link href="https://fonts.googleapis.com/css?family=Muli:400,600,700|Radley" rel="stylesheet">
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+{#      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">#}
       <link rel="stylesheet" href="{% static 'css/blog.css' %}">
    </head>
    <body>
       <header>
-         <div class="container">
+         <div class="container" id="hat">
             <div class="header-row">
                <div class="logo-box">
                   <a href="{% url 'home' %}">
-                  <img class="logo" src="{% static "pictures/logo1.jpg" %}" alt="My image">
+                  <img class="logo" src="{% static "pictures/logo2.png" %}" alt="My image">
                   </a>
                </div>
                <ul id="menu">
+                  {% if user.is_authenticated %}
                   <li>
                      <a href="{% url 'account_change_password' %}" class="top-menu">{% user_display user %}</a>
                   </li>
-                  {% if user.is_authenticated %}
                   <li>
                      <a href="{% url 'post_draft_list' %}" class="top-menu">Не опубликованные посты</a>
                   </li>
-                  <li>
+                  <li id="exit">
                      <a href="{% url 'account_logout' %}" class="top-menu">Выход</a>
                   </li>
                   {% else %}
